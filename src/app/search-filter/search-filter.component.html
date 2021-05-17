@@ -1,0 +1,25 @@
+
+<div>
+    <h1>Growth Factor</h1>
+    <label>Country</label>
+    <select class="form-select" (change)="getCountry($event.target.value)">
+        <!-- <option>All</option> -->
+        <option *ngFor="let country of countries" value={{country.Slug}}>
+            {{country.Country}}
+        </option>
+    </select>
+    <label>From Date</label>
+    <input type="date" (change)="getFromDate($event.target.value)">
+    <label>To Date</label>
+    <input type="date" (change)="getToDate($event.target.value)">
+    <br><br>
+    <button (click)="getCoronaData()" class="btn btn-success">Get Corona count</button>
+    <h4>Total confirmed case: {{confirmed}} </h4>
+    <h4>Total Recovered case: {{recover}} </h4>
+    <h4>Total Death case: {{death}} </h4>
+    <h4>Total Active case: {{active}} </h4>
+   
+    <div id="divChart">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
